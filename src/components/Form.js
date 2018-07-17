@@ -1,8 +1,9 @@
 import React from 'react'
 import Input from './Input'
+import './Form.css'
 
 const Form = props => (
-  <form onSubmit={props.added}>
+  <form className="form" onSubmit={props.added}>
     <Input
       type="text"
       placeholder="Add new task"

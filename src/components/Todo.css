@@ -1,0 +1,6 @@
+.article {
+  display: grid;
+  grid-template-areas:
+    'new new'
+    'todo done';
+}

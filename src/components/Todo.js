@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ItemsList from './ItemsList'
 import Form from './Form'
+import './Todo.css'
 
 class Todo extends Component {
   state = {
@@ -47,7 +48,7 @@ class Todo extends Component {
     } = this
     const taksFilter = st => tasks.filter(el => el.status === st)
     return (
-      <Fragment>
+      <article className="article">
         <Form
           value={inputValue}
           changed={handleGetInputValue}
@@ -65,7 +66,7 @@ class Todo extends Component {
           btnType={'todo'}
           changed={handleChangeStatus}
         />
-      </Fragment>
+      </article>
     )
   }
 }

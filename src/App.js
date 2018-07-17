@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import Todo from './components/Todo'
-// import './App.css'
+import './App.css'
 
 class App extends Component {
   render() {
-    return <Todo />
+    return (
+      <main className="main">
+        <Todo />
+      </main>
+    )
   }
 }
 
