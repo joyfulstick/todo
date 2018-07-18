@@ -7,8 +7,12 @@ const Item = props => (
     className="item"
     onDragStart={props.dragStarted}
     onDragEnter={props.dragEnter}
+    id={props.id}
+    status={props.status}
   >
-    <div className="container">{props.children}</div>
+    <div className="container" status={props.status} id={props.id}>
+      {props.children}
+    </div>
   </li>
 )
 

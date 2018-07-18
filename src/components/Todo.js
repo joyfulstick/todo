@@ -7,6 +7,7 @@ class Todo extends Component {
   state = {
     tasks: [],
     inputValue: '',
+    id: 0,
   }
 
   handleGetInputValue = e => this.setState({ inputValue: e.target.value })
@@ -26,6 +27,24 @@ class Todo extends Component {
   }
 
   handleChangeStatus = e => {
+    const status = e.currentTarget.getAttribute('status')
+
+    this.setState(prevState => {
+      const { id } = prevState
+      const tasks = [...prevState.tasks]
+      const task = tasks.find(el => el.id === +id)
+      if (task.status !== status) {
+        if (task.status === 'todo') {
+          task.status = 'done'
+        } else if (task.status === 'done') {
+          task.status = 'todo'
+        }
+      }
+      return { tasks }
+    })
+  }
+
+  handleToggleStatus = e => {
     const { id } = e.target
     this.setState(prevState => {
       const tasks = [...prevState.tasks]
@@ -39,14 +58,20 @@ class Todo extends Component {
     })
   }
 
+  setId = e => {
+    const { id } = e.target
+    this.setState({ id })
+  }
+
   render() {
     const {
       state: { tasks, inputValue },
       handleGetInputValue,
       handleAddTaks,
+      handleToggleStatus,
       handleChangeStatus,
     } = this
-    const taksFilter = st => this.state.tasks.filter(el => el.status === st)
+    const taksFilter = st => tasks.filter(el => el.status === st)
     const todo = taksFilter('todo'),
       done = taksFilter('done')
     return (
@@ -60,13 +85,19 @@ class Todo extends Component {
           title="To Do"
           list={todo}
           btnType="&#10004;"
+          toggled={handleToggleStatus}
           changed={handleChangeStatus}
+          status="todo"
+          setId={this.setId}
         />
         <ItemsList
           title="Done"
           list={done}
           btnType="&#10226;"
+          toggled={handleToggleStatus}
           changed={handleChangeStatus}
+          status="done"
+          setId={this.setId}
         />
       </article>
     )
