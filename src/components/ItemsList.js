@@ -4,21 +4,19 @@ import Button from './Button'
 import ItemContent from './ItemContent'
 import './ItemsList.css'
 
-const ItemsList = props => (
+const ItemsList = ({ title, list, ...rest }) => (
   <section className="section">
-    <h2>{props.title}</h2>
-    <ul className="list">
-      {props.list.length !== 0 ? (
-        props.list.map(el => (
+    <h2 className="title">{title}</h2>
+    <ul className={`'list' ${title === 'Done' ? 'lined' : ''}`}>
+      {list.length !== 0 ? (
+        list.map(el => (
           <Item key={el.id}>
-            <ItemContent className="task">{el.name}</ItemContent>
-            <Button changed={props.changed} id={el.id}>
-              {props.btnType}
-            </Button>
+            <ItemContent>{el.name}</ItemContent>
+            <Button id={el.id} {...rest} />
           </Item>
         ))
       ) : (
-        <Item>Nothing {props.title}</Item>
+        <p className="nothing">Nothing {title}</p>
       )}
     </ul>
   </section>

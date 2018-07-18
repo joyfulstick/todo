@@ -1,6 +1,15 @@
 .article {
   display: grid;
   grid-template-areas:
-    'new new'
-    'todo done';
+    'new'
+    'todo'
+    'done';
+}
+
+@media (min-width: 600px) {
+  .article {
+    grid-template-areas:
+      'new new'
+      'todo done';
+  }
 }

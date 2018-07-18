@@ -1,5 +1,33 @@
 .item {
+  list-style: none;
+}
+
+.container {
+  padding: 1em;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.3em;
+  transform: none;
+  filter: none;
+}
+.item:hover > .container {
+  transform: translate(-1em, 0);
+  filter: drop-shadow(0 0 0.2em var(--color0-shade3));
+  transition: 0.3s transform ease-out;
+}
+
+.item .button {
+  display: none;
+}
+
+.item:hover .button {
+  display: block;
+}
+
+.item:hover .content {
+  text-overflow: unset;
+  white-space: unset;
+  overflow-wrap: break-word;
 }

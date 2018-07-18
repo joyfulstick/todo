@@ -1,7 +1,29 @@
 .section {
-  width: 30vw;
+  width: 80vw;
+  margin: 2em 0;
+}
+
+.title {
+  color: #aaa;
 }
 
 .list {
+  margin: 1em 0;
+}
+
+.lined .content {
+  text-decoration: line-through;
+}
+
+.nothing {
+  color: #aaa;
+  font-style: italic;
+  font-weight: bold;
   padding: 1em;
+}
+
+@media (min-width: 600px) {
+  .section {
+    width: 40vw;
+  }
 }

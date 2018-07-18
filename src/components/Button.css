@@ -1,0 +1,26 @@
+.button {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1.5rem;
+  transition: 0.3s ease-out;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.2);
+  transition: 0.3s ease-in;
+  opacity: 0.8;
+}
+
+.done {
+  background: var(--color1-shade2);
+}
+
+.todo {
+  background: var(--color2-shade2);
+}

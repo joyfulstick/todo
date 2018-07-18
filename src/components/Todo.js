@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ItemsList from './ItemsList'
 import Form from './Form'
 import './Todo.css'
@@ -55,15 +55,15 @@ class Todo extends Component {
           added={handleAddTaks}
         />
         <ItemsList
-          title="To do"
+          title="To Do"
           list={taksFilter('todo')}
-          btnType={'done'}
+          btnType="&#10004;"
           changed={handleChangeStatus}
         />
         <ItemsList
           title="Done"
           list={taksFilter('done')}
-          btnType={'todo'}
+          btnType="&#10226;"
           changed={handleChangeStatus}
         />
       </article>

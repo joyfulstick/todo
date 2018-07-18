@@ -10,7 +10,7 @@ const Form = props => (
       value={props.value}
       changed={props.changed}
     />
-    <Input type="submit" value="Add" disabled={props.value.length === 0} />
+    <Input type="submit" value="+" disabled={props.value.length === 0} />
   </form>
 )
 
