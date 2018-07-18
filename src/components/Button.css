@@ -9,12 +9,15 @@
   transition: 0.3s ease-out;
   color: #fff;
   cursor: pointer;
+  filter: saturate(0);
+  opacity: 0.5;
 }
 
 .button:hover {
   transform: scale(1.2);
   transition: 0.3s ease-in;
-  opacity: 0.8;
+  filter: saturate(100%);
+  opacity: 1;
 }
 
 .done {
