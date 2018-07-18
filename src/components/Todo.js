@@ -46,7 +46,9 @@ class Todo extends Component {
       handleAddTaks,
       handleChangeStatus,
     } = this
-    const taksFilter = st => tasks.filter(el => el.status === st)
+    const taksFilter = st => this.state.tasks.filter(el => el.status === st)
+    const todo = taksFilter('todo'),
+      done = taksFilter('done')
     return (
       <article className="article">
         <Form
@@ -56,13 +58,13 @@ class Todo extends Component {
         />
         <ItemsList
           title="To Do"
-          list={taksFilter('todo')}
+          list={todo}
           btnType="&#10004;"
           changed={handleChangeStatus}
         />
         <ItemsList
           title="Done"
-          list={taksFilter('done')}
+          list={done}
           btnType="&#10226;"
           changed={handleChangeStatus}
         />
