@@ -1,6 +1,6 @@
 import './Item.css'
-import Button from './Button'
-import ItemContent from './ItemContent'
+import Button from '../../Button/Button'
+import ItemContent from './ItemContent/ItemContent'
 import React from 'react'
 
 const Item = props => (

@@ -1,5 +1,5 @@
 import './Form.css'
-import Input from './Input'
+import Input from './Input/Input'
 import React from 'react'
 
 const Form = props => (
