@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Item from './Item'
-import Button from './Button'
-import ItemContent from './ItemContent'
 import './ItemsList.css'
 
 class ItemsList extends Component {
@@ -34,11 +32,11 @@ class ItemsList extends Component {
 
   render() {
     const {
-      props: { title, toggled, changed, status },
+      props: { title, clicked, dragged, status },
       state: { tasks },
     } = this
     return (
-      <section className="section" onDragEnter={changed} status={status}>
+      <section className="section" onDragEnter={dragged} status={status}>
         <h2 className="title">{status === 'done' ? 'Done' : 'To Do'}</h2>
         <ul className={`'list' ${status === 'done' ? 'lined' : ''}`}>
           {tasks.length !== 0 ? (
@@ -50,14 +48,10 @@ class ItemsList extends Component {
                 status={el.status}
                 dragStarted={e => this.handleDragStart(e, i)}
                 dragEnter={e => this.handleDragEnter(e, i)}
-              >
-                <ItemContent>{el.name}</ItemContent>
-                <Button
-                  id={el.id}
-                  toggled={toggled}
-                  btnType={status === 'done' ? '\u27F2' : '\u2714'}
-                />
-              </Item>
+                clicked={clicked}
+                btnType={status === 'done' ? '\u27F2' : '\u2714'}
+                name={el.name}
+              />
             ))
           ) : (
             <p className="nothing">Nothing {title}</p>

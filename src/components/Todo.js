@@ -26,34 +26,33 @@ class Todo extends Component {
     })
   }
 
-  handleChangeStatus = e => {
-    const status = e.currentTarget.getAttribute('status')
+  toggleStatus = status => {
+    if (status === 'todo') {
+      status = 'done'
+    } else if (status === 'done') {
+      status = 'todo'
+    }
+    return status
+  }
 
+  handleDragStatus = e => {
+    const status = e.currentTarget.getAttribute('status')
     this.setState(prevState => {
       const { id } = prevState
       const tasks = [...prevState.tasks]
       const task = tasks.find(el => el.id === +id)
-      if (task.status !== status) {
-        if (task.status === 'todo') {
-          task.status = 'done'
-        } else if (task.status === 'done') {
-          task.status = 'todo'
-        }
-      }
+      if (task.status === status) return
+      task.status = this.toggleStatus(task.status)
       return { tasks }
     })
   }
 
-  handleToggleStatus = e => {
+  handleClickStatus = e => {
     const { id } = e.target
     this.setState(prevState => {
       const tasks = [...prevState.tasks]
       const task = tasks.find(el => el.id === +id)
-      if (task.status === 'todo') {
-        task.status = 'done'
-      } else if (task.status === 'done') {
-        task.status = 'todo'
-      }
+      task.status = this.toggleStatus(task.status)
       return { tasks }
     })
   }
@@ -68,8 +67,8 @@ class Todo extends Component {
       state: { tasks, inputValue },
       handleGetInputValue,
       handleAddTaks,
-      handleToggleStatus,
-      handleChangeStatus,
+      handleClickStatus,
+      handleDragStatus,
       setId,
     } = this
     const taksFilter = st => tasks.filter(el => el.status === st)
@@ -85,8 +84,8 @@ class Todo extends Component {
           <ItemsList
             key={list}
             list={taksFilter(list)}
-            toggled={handleToggleStatus}
-            changed={handleChangeStatus}
+            clicked={handleClickStatus}
+            dragged={handleDragStatus}
             status={list}
             setId={setId}
           />
