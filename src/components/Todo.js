@@ -73,10 +73,7 @@ class Todo extends Component {
       setId,
     } = this
     const taksFilter = st => tasks.filter(el => el.status === st)
-    const lists = [
-      { title: 'To Do', status: 'todo', btnType: '\u2714' },
-      { title: 'Done', status: 'done', btnType: '\u27F2' },
-    ]
+    const lists = ['todo', 'done']
     return (
       <article className="article">
         <Form
@@ -86,13 +83,11 @@ class Todo extends Component {
         />
         {lists.map(list => (
           <ItemsList
-            key={list.status}
-            title={list.title}
-            list={taksFilter(list.status)}
-            btnType={list.btnType}
+            key={list}
+            list={taksFilter(list)}
             toggled={handleToggleStatus}
             changed={handleChangeStatus}
-            status={list.status}
+            status={list}
             setId={setId}
           />
         ))}

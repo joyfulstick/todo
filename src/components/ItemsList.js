@@ -34,13 +34,13 @@ class ItemsList extends Component {
 
   render() {
     const {
-      props: { title, toggled, changed, btnType, status },
+      props: { title, toggled, changed, status },
       state: { tasks },
     } = this
     return (
       <section className="section" onDragEnter={changed} status={status}>
-        <h2 className="title">{title}</h2>
-        <ul className={`'list' ${title === 'Done' ? 'lined' : ''}`}>
+        <h2 className="title">{status === 'done' ? 'Done' : 'To Do'}</h2>
+        <ul className={`'list' ${status === 'done' ? 'lined' : ''}`}>
           {tasks.length !== 0 ? (
             tasks.map((el, i) => (
               <Item
@@ -52,7 +52,11 @@ class ItemsList extends Component {
                 dragEnter={e => this.handleDragEnter(e, i)}
               >
                 <ItemContent>{el.name}</ItemContent>
-                <Button id={el.id} toggled={toggled} btnType={btnType} />
+                <Button
+                  id={el.id}
+                  toggled={toggled}
+                  btnType={status === 'done' ? '\u27F2' : '\u2714'}
+                />
               </Item>
             ))
           ) : (
