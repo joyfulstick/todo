@@ -70,10 +70,13 @@ class Todo extends Component {
       handleAddTaks,
       handleToggleStatus,
       handleChangeStatus,
+      setId,
     } = this
     const taksFilter = st => tasks.filter(el => el.status === st)
-    const todo = taksFilter('todo'),
-      done = taksFilter('done')
+    const lists = [
+      { title: 'To Do', status: 'todo', btnType: '\u2714' },
+      { title: 'Done', status: 'done', btnType: '\u27F2' },
+    ]
     return (
       <article className="article">
         <Form
@@ -81,24 +84,18 @@ class Todo extends Component {
           changed={handleGetInputValue}
           added={handleAddTaks}
         />
-        <ItemsList
-          title="To Do"
-          list={todo}
-          btnType="&#10004;"
-          toggled={handleToggleStatus}
-          changed={handleChangeStatus}
-          status="todo"
-          setId={this.setId}
-        />
-        <ItemsList
-          title="Done"
-          list={done}
-          btnType="&#10226;"
-          toggled={handleToggleStatus}
-          changed={handleChangeStatus}
-          status="done"
-          setId={this.setId}
-        />
+        {lists.map(list => (
+          <ItemsList
+            key={list.status}
+            title={list.title}
+            list={taksFilter(list.status)}
+            btnType={list.btnType}
+            toggled={handleToggleStatus}
+            changed={handleChangeStatus}
+            status={list.status}
+            setId={setId}
+          />
+        ))}
       </article>
     )
   }
