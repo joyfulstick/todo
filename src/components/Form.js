@@ -1,6 +1,6 @@
-import React from 'react'
-import Input from './Input'
 import './Form.css'
+import Input from './Input'
+import React from 'react'
 
 const Form = props => (
   <form className="form" onSubmit={props.added}>

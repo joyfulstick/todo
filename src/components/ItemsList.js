@@ -1,6 +1,6 @@
+import './ItemsList.css'
 import React, { Component } from 'react'
 import Item from './Item'
-import './ItemsList.css'
 
 class ItemsList extends Component {
   state = {

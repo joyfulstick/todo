@@ -1,5 +1,5 @@
-import React from 'react'
 import './ItemContent.css'
+import React from 'react'
 
 const ItemContent = props => <p className="content">{props.children}</p>
 

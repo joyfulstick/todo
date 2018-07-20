@@ -1,7 +1,7 @@
-import React from 'react'
+import './Item.css'
 import Button from './Button'
 import ItemContent from './ItemContent'
-import './Item.css'
+import React from 'react'
 
 const Item = props => (
   <li

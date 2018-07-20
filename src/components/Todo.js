@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import ItemsList from './ItemsList'
-import Form from './Form'
 import './Todo.css'
+import React, { Component } from 'react'
+import Form from './Form'
+import ItemsList from './ItemsList'
 
 class Todo extends Component {
   state = {
