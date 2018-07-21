@@ -32,30 +32,27 @@ class ItemsList extends Component {
 
   render() {
     const {
-      props: { title, clicked, dragged, status },
+      props: { clicked, dragged, status },
       state: { tasks },
     } = this
+    const title = status === 'todo' ? 'To Do' : 'Done'
     return (
       <section
         className={classes.section}
         onDragEnter={dragged}
         status={status}
       >
-        <h2 className={classes.title}>
-          {status === 'done' ? 'Done' : 'To Do'}
-        </h2>
+        <h2 className={classes.title}>{title}</h2>
         <ul className={classes.list}>
           {tasks.length !== 0 ? (
             tasks.map((el, i) => (
               <Item
                 key={el.id}
-                title={title}
                 id={el.id}
                 status={el.status}
                 dragStarted={e => this.handleDragStart(e, i)}
                 dragEnter={e => this.handleDragEnter(e, i)}
                 clicked={clicked}
-                btnType={status === 'done' ? '\u27F2' : '\u2714'}
                 name={el.name}
               />
             ))
