@@ -1,6 +1,6 @@
-import './ItemsList.css'
 import React, { Component } from 'react'
 import Item from './Item/Item'
+import classes from './ItemsList.css'
 
 class ItemsList extends Component {
   state = {
@@ -36,9 +36,15 @@ class ItemsList extends Component {
       state: { tasks },
     } = this
     return (
-      <section className="section" onDragEnter={dragged} status={status}>
-        <h2 className="title">{status === 'done' ? 'Done' : 'To Do'}</h2>
-        <ul className={`'list' ${status === 'done' ? 'lined' : ''}`}>
+      <section
+        className={classes.section}
+        onDragEnter={dragged}
+        status={status}
+      >
+        <h2 className={classes.title}>
+          {status === 'done' ? 'Done' : 'To Do'}
+        </h2>
+        <ul className={classes.list}>
           {tasks.length !== 0 ? (
             tasks.map((el, i) => (
               <Item
@@ -54,7 +60,7 @@ class ItemsList extends Component {
               />
             ))
           ) : (
-            <p className="nothing">Nothing {title}</p>
+            <p className={classes.nothing}>Nothing {title}</p>
           )}
         </ul>
       </section>

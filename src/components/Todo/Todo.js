@@ -1,7 +1,7 @@
-import './Todo.css'
 import React, { Component } from 'react'
 import Form from './Form/Form'
 import ItemsList from './ItemsList/ItemsList'
+import classes from './Todo.css'
 
 class Todo extends Component {
   state = {
@@ -74,7 +74,7 @@ class Todo extends Component {
     const taksFilter = st => tasks.filter(el => el.status === st)
     const lists = ['todo', 'done']
     return (
-      <article className="article">
+      <article className={classes.article}>
         <Form
           value={inputValue}
           changed={handleGetInputValue}

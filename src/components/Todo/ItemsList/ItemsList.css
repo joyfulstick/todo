@@ -11,10 +11,6 @@
   margin: 1em 0;
 }
 
-.lined .content {
-  text-decoration: line-through;
-}
-
 .nothing {
   color: #aaa;
   font-style: italic;

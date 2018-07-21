@@ -18,15 +18,15 @@
   transition: 0.3s transform ease-out;
 }
 
-.item .button {
+.item :global(.button--item-hover) {
   display: none;
 }
 
-.item:hover .button {
+.item:hover :global(.button--item-hover) {
   display: block;
 }
 
-.item:hover .content {
+.item:hover :global(.content--item-hover) {
   text-overflow: unset;
   white-space: unset;
   overflow-wrap: break-word;
